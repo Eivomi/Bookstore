@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Книгарня</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Підключаємо React -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- Babel для JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+</head>
+<body>
+
+<header>
+  <div class="top-nav">
+    <div class="time-container">
+      <div class="time-item">
+        <span class="time-letter">Ч</span>
+        <span class="time-description">читай</span>
+      </div>
+      <div class="time-item">
+        <span class="time-letter">А</span>
+        <span class="time-description">аналізуй</span>
+      </div>
+      <div class="time-item">
+        <span class="time-letter">С</span>
+        <span class="time-description">спілкуйся</span>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-button" onclick="window.location.href='catalog.html'">
+        Каталог
+      </button>
+
+      <button class="upper-button" onclick="openAccountForm()">
+        <img src="avatar.svg" alt="Мій акаунт" />
+      </button>
+      <script>
+        function openAccountForm() {
+          const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+          if (isLoggedIn) {
+            window.location.href = "account.html";
+          } else {
+            const modal = document.getElementById("auth-modal");
+            if (modal) {
+              modal.style.display = "flex";
+            } else {
+              window.location.href = "login.html";
+            }
+          }
+        }
+      </script>
+
+      <div
+        id="auth-modal"
+        style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background-color:rgba(0,0,0,0.5); align-items:center; justify-content:center; z-index:9999;"
+      >
+        <div
+          style="background:white; padding:20px; border-radius:8px; position:relative; min-width: 320px;"
+        >
+          <button
+            onclick="closeAccountForm()"
+            style="position:absolute; top:5px; right:10px; background:transparent; border:none; font-size:20px; cursor:pointer;"
+          >
+            &times;
+          </button>
+          <div id="react-auth-root"></div>
+        </div>
+      </div>
+
+      <button class="upper-button" onclick="goToCart()">
+        <img src="basket.svg" alt="Кошик">
+      </button>
+
+      <script>
+        // Функція для переходу на сторінку кошика
+        function goToCart() {
+          window.location.href = "cart.html"; // Перехід на сторінку кошика
+        }
+      </script>
+
+      <button class="upper-button" onclick="window.location.href='favorites.html'">
+        <img src="heart.svg" alt="Вподобане">
+      </button>
+
+
+
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="image-container">
+    <img src="banner1.png" alt="Фото книгарні" class="promo-image">
+  </div>
+</main>
+
+<div class="section-title">
+  <h2>Найпопулярніші книги</h2>
+</div>
+
+<div class="books-container" id="books-container">
+  <!-- Картки книг будуть додаватися тут за допомогою JavaScript -->
+</div>
+
+<main>
+  <div class="image-container">
+    <img src="banner2.png" alt="Фото книгарні" class="promo-image">
+  </div>
+</main>
+
+<!-- Часті питання -->
+<div class="faq">
+  <h2>Часті питання</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">Як авторизуватись?</button>
+    <p class="faq-answer">Щоб увійти до особистого кабінету, натисніть на іконку "Мій акаунт" у верхньому меню та введіть ваші дані.</p>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Як замовити на сайті?</button>
+    <p class="faq-answer">Щоб оформити замовлення, додайте книги у кошик, перейдіть до кошика та заповніть необхідні дані.</p>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Як відбувається доставка?</button>
+    <p class="faq-answer">Доставка здійснюється Новою Поштою, Укрпоштою або кур'єром. Після оформлення замовлення ви отримаєте номер для відстеження.</p>
+  </div>
+</div>
+
+<footer>
+  <p>Контакти: +38 (063) 456 7890</p>
+  <p>Email: CHAS.bookclub@gmail.com</p>
+</footer>
+
+
+<script src="script.js"></script>
+<script src="account.js"></script>
+<script src="login.js"></script>
+<script>
+  // Запит до сервера
+  fetch("http://localhost:3000/api/message")
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.message); // вивід у консоль
+      document.getElementById("message").textContent = data.message; // показ на сторінці
+    })
+    .catch(error => {
+      console.error("Помилка при отриманні повідомлення:", error);
+      document.getElementById("message").textContent = "Не вдалося отримати повідомлення з сервера.";
+    });
+</script>
+</body>
+</html>

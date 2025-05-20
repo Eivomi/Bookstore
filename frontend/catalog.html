@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог книг</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Часова навігація -->
+<div class="time-container">
+  <div class="time-item" onclick="goToHome()">
+    <span class="time-letter">Ч</span>
+    <span class="time-description">читай</span>
+  </div>
+  <div class="time-item" onclick="goToHome()">
+    <span class="time-letter">А</span>
+    <span class="time-description">аналізуй</span>
+  </div>
+  <div class="time-item" onclick="goToHome()">
+    <span class="time-letter">С</span>
+    <span class="time-description">спілкуйся</span>
+  </div>
+</div>
+
+<script>
+  // Функція для переходу на головну сторінку
+  function goToHome() {
+    window.location.href = "/"; // Замість "/" вкажіть шлях до головної сторінки
+  }
+</script>
+
+<!-- Підключення React та Babel -->
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<div class="catalog-container">
+  <div id="react-filter-container"></div> <!-- Місце для фільтра -->
+  <div id="book-list" class="books-container">
+    <!-- Картки книг будуть додаватися за допомогою JavaScript -->
+  </div>
+</div>
+
+<script src="catalog.js"></script>
+<!-- React-компонент для фільтра -->
+<script type="text/babel">
+  function FilterComponent() {
+    const [filterValue, setFilterValue] = React.useState("all");
+
+    const genres = ["Фантастика", "Детектив", "Романтика", "Драма", "Поезія", "Трилер", "Повість", "Мотиваційна література"];
+
+    const handleButtonClick = (value) => {
+      setFilterValue(value);
+      filterBooks("genre", value);  // фільтруємо тільки за жанром
+    };
+
+    return (
+      <div id="react-filter-container">
+        {/* Кнопки для жанрів */}
+        <div className="filter-button-container">
+          <button
+            className={`filter-button ${filterValue === "all" ? "active" : ""}`}
+            onClick={() => handleButtonClick("all")}
+          >
+            Усі
+          </button>
+          {genres.map((genre) => (
+            <button
+              key={genre}
+              className={`filter-button ${filterValue === genre ? "active" : ""}`}
+              onClick={() => handleButtonClick(genre)}
+            >
+              {genre}
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById("react-filter-container")).render(<FilterComponent />);
+</script>
+<!-- Firebase Authentication -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+
+<!-- Firebase Firestore -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+
+<!-- Firebase compat (для старого синтаксису 8.x, який ти використовуєш) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-compat.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Вподобані книги</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="time-container">
+  <div class="time-item" onclick="goToHome()">
+    <span class="time-letter">Ч</span>
+    <span class="time-description">читай</span>
+  </div>
+  <div class="time-item" onclick="goToHome()">
+    <span class="time-letter">А</span>
+    <span class="time-description">аналізуй</span>
+  </div>
+  <div class="time-item" onclick="goToHome()">
+    <span class="time-letter">С</span>
+    <span class="time-description">спілкуйся</span>
+  </div>
+</div>
+
+<div id="favorites-list"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const container = document.getElementById("favorites-list");
+
+    if (favorites.length === 0) {
+      container.innerHTML = "<p>У вас немає вподобаних книг.</p>";
+      return;
+    }
+
+    favorites.forEach(book => {
+      const card = document.createElement("div");
+      card.className = "fav-book-card";
+      card.innerHTML = `
+      <img src="${book.image}" alt="${book.title}" class="fav-book-image" />
+      <h3 class="fav-book-title">${book.title}</h3>
+      <p class="fav-book-author">Автор: ${book.author}</p>
+      <p class="fav-book-price">Ціна: ${book.price}</p>
+      <button class="fav-remove-btn" onclick="removeFromFavorites('${book.title}')">Видалити</button>
+    `;
+      container.appendChild(card);
+    });
+  });
+
+  function removeFromFavorites(title) {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const updated = favorites.filter(book => book.title !== title);
+    localStorage.setItem("favorites", JSON.stringify(updated));
+    location.reload();
+  }
+  const timeItems = document.querySelectorAll(".time-item");
+  timeItems.forEach(item => {
+    item.addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
+  });
+</script>
+
+</body>
+</html>

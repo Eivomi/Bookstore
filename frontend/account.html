@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Мій акаунт</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script src="account.js" defer></script>
+  <script src="cart.js" defer></script>
+</head>
+<body>
+<!-- Модальне вікно для форми -->
+<div id="auth-modal" class="auth-modal">
+  <div id="react-auth-root"></div>
+</div>
+
+<div class="time-container">
+  <div class="time-item">
+    <span class="time-letter">Ч</span>
+    <span class="time-description">читай</span>
+  </div>
+  <div class="time-item">
+    <span class="time-letter">А</span>
+    <span class="time-description">аналізуй</span>
+  </div>
+  <div class="time-item">
+    <span class="time-letter">С</span>
+    <span class="time-description">спілкуйся</span>
+  </div>
+</div>
+
+<div class="account-container">
+  <div class="user-info">
+    <img src="avatar.svg" alt="Аватар" class="avatar">
+    <p id="user-name">Ім'я: </p>
+    <p id="user-surname">Прізвище: </p>
+    <p id="user-email">Email: </p>
+  </div>
+
+  <div id="purchase-history">
+    <h3>Історія покупок</h3>
+    <div id="purchase-status" class="orders-list">
+      <!-- Якщо немає замовлень, виведеться "У вас ще немає покупок" -->
+    </div>
+    <button id="logout-button">Вийти</button>
+
+
+  </div>
+
+</div>
+
+
+</body>
+</html>

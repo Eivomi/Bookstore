@@ -1,0 +1,1435 @@
+/* Загальні стилі */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+main {
+  flex-grow: 1; /* Основний контент займає весь доступний простір */
+}
+
+.fav-book-card {
+  width: 280px;
+  min-height: 500px; /* гарантує однакову висоту */
+  margin: 10px;
+  padding: 10px 20px 20px;
+  border: 1px solid #cacaca;
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.fav-book-image {
+  width: 100%;
+  height: 340px; /* однакова висота зображень */
+  object-fit: cover; /* обрізає, якщо зображення занадто велике */
+  border-radius: 4px;
+}
+
+.fav-book-title,
+.fav-book-author,
+.fav-book-price {
+  margin: 8px 0;
+}
+
+.fav-remove-btn {
+  margin-top: 10px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.fav-remove-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Стилі для заголовка */
+header {
+  background-color: #ffffff;
+  color: #000000;
+  padding-right: 25px;
+}
+
+.header-left {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.time-container {
+  margin-left: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Відстань між буквами */
+}
+
+.time-item {
+  text-align: center;
+}
+
+.time-letter {
+  font-size: 40px; /* Розмір для букв */
+  font-weight: bold;
+}
+
+.time-description {
+  display: block;
+  font-size: 12px; /* Менший розмір для опису */
+  color: #000000; /* Колір для опису */
+  margin-top: 5px; /* Відстань між буквою і текстом */
+}
+.nav-button {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  top: -15px;
+}
+
+.nav-buttons {
+  flex-wrap: wrap; /* Дозволяє кнопкам переноситися */
+  justify-content: center; /* Центрує кнопки, якщо вони не вміщаються */
+}
+
+/* Стилі для навігаційної панелі */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Вирівняння по центру */
+  padding: 0 100px;
+  flex-wrap: nowrap; /* Дозволяє елементам залишатися в одному рядку */
+}
+
+/* Контейнер для пошуку */
+.search-container {
+  display: flex;
+  align-items: center; /* Вирівнювання по вертикалі */
+  gap: 10px; /* Проміжок між кнопкою та полем пошуку */
+  position: relative; /* Додаємо relative для коректного позиціонування */
+}
+
+/* Кнопка пошуку */
+.upper-button {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.upper-button img {
+  width: 100%; /* Налаштувати розмір зображення */
+  height: auto; /* Зберігати пропорції зображення */
+  max-width: 50px;
+  max-height: 50px;
+}
+
+/* Поле вводу пошуку */
+#search-input {
+  padding: 8px;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+  display: none; /* Сховане за замовчуванням */
+}
+
+
+/* Стилі для фото */
+.image-container {
+  padding: 10px;
+  text-align: center;
+}
+
+.promo-image {
+  width: 100%;
+  max-width: 1250px;
+  height: auto;
+}
+/* Стилі для кошика */
+.cart-container {
+  padding: 40px;
+  border: 2px solid #ca4545;
+  background-color: #fff;
+  position: fixed;
+  top: 10%;
+  right: 10%;
+  width: 300px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-item img {
+  width: 180px;
+  height: 280px;
+  object-fit: cover;
+}
+
+.cart-item p {
+  flex: 1;
+  margin: 0 20px;
+  font-size: 20px;
+}
+
+input[type="number"] {
+  width: 60px;
+  margin-right: 10px;
+}
+
+button#clear-cart {
+  background-color: #000000;
+  color: #fff;
+  width: 160px;
+  height: 40px;
+  font-size: 16px;
+  margin-left: 20px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+header {
+  position: relative;
+  height: 5vh;
+}
+
+h1 {
+  position: absolute;
+  left: 51%;
+  transform: translate(-50%, -50%);
+}
+
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #dad6d6;
+}
+
+.cart-item-image {
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+.remove-icon {
+  margin-right: 190px;
+  max-width: 30px;
+  max-height: 30px;
+  cursor: pointer;
+}
+
+
+
+/* Стилі для міток */
+#cart-items label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+  font-size: 20px;
+}
+
+/* Стилі для полів введення та селекторів */
+#cart-items input[type="text"],
+#cart-items input[type="email"],
+#cart-items input[type="number"],
+#cart-items select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+  font-size: 14px;
+}
+
+#cart-items input[type="text"]:focus,
+#cart-items input[type="email"]:focus,
+#cart-items input[type="number"]:focus,
+#cart-items select:focus {
+  border-color: #000000;
+  outline: none;
+
+}
+
+/* Стилі для кнопок */
+#cart-items button {
+  background-color: #000000;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+#cart-items button:hover {
+  background-color: #3c3d40;
+}
+
+
+
+
+#open-auth-modal {
+  background-color: #454bca;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+#open-auth-modal:hover {
+  background-color:#454bca;
+}
+
+/* Стиль для модального вікна */
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  pointer-events: none; /* Дозволяє взаємодіяти з елементами поза модальним вікном */
+}
+
+
+
+/* Заголовок форми */
+#react-auth-root h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Контейнер для форми */
+#react-auth-root {
+  border-radius: 8px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px; /* Максимальна ширина для всього контейнера */
+  box-sizing: border-box;
+}
+
+/* Вхідні поля */
+input {
+  width: 100%; /* Ширина 100%, щоб поле займало всю доступну ширину */
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box; /* Це дозволяє padding не виходити за межі елемента */
+}
+
+input:focus {
+  outline: none;
+  border-color: #454bca;
+}
+
+/* Кнопки в формі (вхід/реєстрація) */
+#react-auth-root button {
+  width: 100%; /* Ширина 100%, щоб кнопка займала всю доступну ширину */
+  padding: 12px;
+  font-size: 16px;
+  background-color: #454bca;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px; /* Відступ між кнопками */
+  box-sizing: border-box; /* Це дозволяє padding не виходити за межі елемента */
+}
+
+#react-auth-root button:hover {
+  background-color: #454bca;
+}
+
+/* Лінк для перемикання між реєстрацією та входом */
+#react-auth-root button + button {
+  background-color: transparent;
+  color: #454bca;
+  border: 1px solid #454bca;
+  margin-top: 10px;
+}
+
+#react-auth-root button + button:hover {
+  background-color: #454bca;
+  color: white;
+}
+
+/* Стилі для акаунта */
+.account-container {
+  padding: 40px;
+  border: 2px solid #454bca;
+  background-color: #fff;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* Центрує по горизонталі */
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+
+.user-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.user-info img {
+  width: 120px; /* Збільшено розмір зображення */
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #454bca;
+}
+
+.user-info h2 {
+  font-size: 26px; /* Збільшено шрифт */
+  margin: 10px 0;
+}
+
+.user-info p {
+  font-size: 18px;
+  color: #000000;
+  margin: 5px 0;
+}
+
+.purchase-history, .settings {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.purchase-history h3, .settings h3 {
+  font-size: 22px; /* Збільшено розмір шрифту для заголовків */
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.purchase-history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.purchase-history li {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.settings p {
+  font-size: 18px; /* Збільшено шрифт */
+  margin: 5px 0;
+}
+
+#logout-button {
+  background-color: #f44336; /* Червоний фон */
+  color: white; /* Білий текст */
+  border: none; /* Без обводки */
+  padding: 12px 25px; /* Збільшено відступи */
+  font-size: 18px; /* Збільшено розмір шрифту */
+  cursor: pointer; /* Курсор у вигляді руки */
+  border-radius: 5px; /* Скруглені кути */
+  transition: background-color 0.3s, transform 0.2s; /* Плавні ефекти */
+}
+
+#logout-button:hover {
+  background-color: #d32f2f; /* Темніший червоний при наведенні */
+}
+
+#logout-button:active {
+  transform: scale(0.98); /* Легке зменшення при натисканні */
+}
+
+/* Стилі для основного контенту */
+main {
+  padding: 20px;
+}
+
+.section-title h2 {
+  font-size: 40px; /* Розмір шрифта для заголовку */
+  text-align: center; /* Центрування тексту всередині елемента */
+}
+
+/* Стилі для карток книг */
+.books-container {
+  padding: 10px 130px 100px; /* Зменшуємо верхній відступ */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.book-card {
+  border: 1px solid #ffffff;
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.book-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.book-info {
+  margin-top: 10px;
+}
+
+.book-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.book-author, .book-price {
+  font-size: 14px;
+  color: #000000;
+}
+
+input:checked + .catalog {
+  display: block;
+}
+/* Стилі для контейнера каталога */
+.catalog-container {
+  display: flex;
+  flex-wrap: wrap; /* Дозволяємо карткам переноситись на новий рядок */
+  gap: 20px; /* Відступи між картками */
+  justify-content: center; /* Центруємо картки по горизонталі */
+  padding: 5px; /* Відступи з боків контейнера */
+}
+/* Стилі для сторінки деталей книги */
+.book-details-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* Контейнер для інформації про книгу */
+.book-details {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 90%;
+}
+.book-card {
+  border: 1px solid #ddd; /* Легкий бордер для картки */
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 8px; /* Заокруглені кути */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тінь для карток */
+  transition: transform 0.3s ease-in-out; /* Анімація на ховер */
+}
+
+.book-card:hover {
+  transform: translateY(-10px); /* Легке підняття при наведенні */
+}
+
+/* Фото книги (тільки для book.html) */
+.book-details-container {
+  position: relative;
+  min-height: auto; /* Зробити висоту залежною від контенту */
+  top: 10vh; /* Задає відстань від верху сторінки */
+  left: 50%;
+  transform: translateX(-50%); /* Вирівнює по центру */
+  width: 80%; /* Опціонально: задає ширину */
+  background-color: #ffffff;
+  padding: 40px;
+}
+
+.catalog-container h1 {
+  font-size: 40px;
+  margin: 10px;
+}
+
+.single-book-container {
+  display: flex;
+  align-items: flex-start;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 1200px; /* Збільшено ширину */
+  width: 90%;
+  margin: 40px auto;
+  gap: 40px;
+  min-height: 700px;
+}
+
+
+.single-book-image {
+  padding-top: 50px;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.single-book-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-wrap: anywhere; /* Додатково, щоб довгі слова переносились */
+}
+
+
+.single-book-title {
+  font-size: 2em;
+  color: #2c3e50;
+  word-wrap: break-word;
+  max-width: 100%;
+  padding-top: 10px;
+}
+
+.single-book-author {
+  margin-top: 10px; /* Зменшено верхній відступ */
+  padding-top: 50px; /* Додаємо відступ знизу для кожного елементу */
+  font-size: 1.1em;
+  color: #252525;
+  line-height: 1.6;
+}
+
+.single-book-price,
+.single-book-rating,
+.single-book-genre,
+.single-book-description {
+  margin-top: 10px; /* Зменшено верхній відступ */
+  padding-top: 10px; /* Додаємо відступ знизу для кожного елементу */
+  font-size: 1.1em;
+  color: #232323;
+  line-height: 1.6;
+}
+.single-book-rating {
+  color: #e67e22;
+  font-weight: bold;
+}
+
+/* Адаптивність для телефонів */
+@media (max-width: 768px) {
+  .single-book-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .single-book-image {
+    max-width: 80%;
+  }
+
+  .single-book-info {
+    align-items: center;
+  }
+}
+
+
+/* Контейнер кнопок фіксуємо під заголовком */
+.filter-button-container {
+  position: sticky;
+  top: 60px; /* Відстань від верху */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  background-color: white; /* Фон, щоб кнопки не зливалися */
+  padding: 10px 10px;
+  z-index: 1000; /* Щоб кнопки були поверх іншого контенту */
+}
+
+/* Кнопки розтягуємо рівномірно */
+.filter-button {
+  flex: 1;
+  max-width: 150px; /* Щоб кнопки не були занадто великими */
+  background-color: #000000;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.filter-button:hover {
+  background-color: #919191;
+}
+
+.filter-button.active {
+  background-color: #ff0023;
+}
+
+.filter-button:focus {
+  outline: none;
+}
+
+/* Стилі для заголовків */
+h1 {
+  text-align: center;
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+/* Основний блок з інформацією */
+.book-details {
+  display: flex;
+  background: white;
+  padding: 190px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  width: 100%;
+  gap: 30px;
+}
+
+/* Фото книги (займає лише 30% ширини) */
+.book-details .book-image {
+  width: 30%;
+  height: auto;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+/* Текстовий блок (займає решту простору) */
+.book-details .book-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Заголовок */
+.book-details .book-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Автор */
+.book-details .book-author {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Ціна */
+.book-details .book-price {
+  font-size: 24px;
+  color: #d32f2f;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Опис (щоб вміщувався весь текст) */
+.book-details .book-description {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Стилі для кнопок */
+.book-details button {
+  border: none;
+  font-size: 18px;
+  padding: 5px 30px; /* Було 10px 40px */
+  margin: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+.book-details .add-to-cart {
+  background: #000000;
+  color: white;
+}
+
+.book-details .add-to-favorites {
+  background: #000000;
+  color: white;
+}
+
+.faq-item {
+  margin-bottom: 10px;
+}
+
+.faq-question {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  background: #000000;
+  color: white;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: transform 0.3s ease; /* Анімація для підняття питання */
+  margin: 0 auto; /* Центруємо елемент по горизонталі */
+  display: block; /* Задаємо блоковий елемент, щоб margin auto працював */
+}
+
+
+.faq-answer {
+  margin: 5px 10px;
+  padding: 15px;
+  display: none; /* Початково сховано */
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  max-height: 0;
+  overflow: hidden;
+  margin-left: 150px;
+}
+
+.faq-answer.show {
+  display: block; /* Покажемо відповідь */
+  max-height: 200px; /* Анімаційне розгортання */
+}
+
+
+
+/* Клас для відкритої відповіді */
+.faq-answer.open {
+  display: block;
+  opacity: 1;
+  bottom: 0; /* Відповідь буде піднята на звичне місце */
+}
+
+.faq-question.open {
+  transform: translateY(-10px); /* Піднімаємо питання вгору */
+}
+.faq h2 {
+  font-size: 24px; /* Розмір шрифту */
+  color: #000000; /* Колір тексту */
+  font-weight: bold; /* Жирний шрифт */
+  text-align: left; /* Вирівнювання тексту зліва */
+  margin-bottom: 30px; /* Відступ знизу */
+  margin-top: 50px;
+  padding-left: 150px; /* Відступ праворуч від краю */
+}
+
+
+
+
+/* Стилі для футера */
+footer {
+  background-color: #000000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  margin-top: 50px; /* Виштовхує футер внизу */
+  width: 100%;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+/* Загальні стилі для кнопки "Каталог" */
+.catalog-button {
+  display: block; /* Робимо кнопку блочним елементом для центровання */
+  margin: 0 auto; /* Центруємо кнопку по горизонталі */
+}
+/*/////////////////////////////////////////////////*
+/* Стилі для верхнього колонтитулу при ширині екрану до 450px */
+@media (max-width: 450px) {
+  .time-container {
+    font-size: 10px;
+    display: flex;
+    justify-content: center; /* Центруємо кнопки по горизонталі */
+    align-items: center; /* Центруємо кнопки по вертикалі */
+    gap: 3px;
+    flex-wrap: nowrap;
+  }
+
+  .nav-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center; /* Центруємо кнопки по горизонталі */
+    gap: 5px;
+    align-items: center; /* Центруємо по вертикалі */
+  }
+
+  .top-nav {
+    flex-direction: column;
+    align-items: center; /* Центруємо елементи по горизонталі */
+    padding: 10px;
+  }
+
+  .nav-button {
+    top: auto;
+    font-size: 8px;
+    padding: 5px 9px;
+  }
+
+  .upper-button img {
+    max-width: 20px;
+    max-height: 20px;
+    object-fit: contain;
+  }
+  .cart-container, .account-container {
+    width: 90%; /* Зменшуємо ширину контейнерів */
+    top: 5%; /* Менший відступ зверху */
+    right: 5%; /* Менший відступ справа */
+    padding: 20px; /* Зменшуємо відступи всередині контейнерів */
+    border-radius: 8px; /* Заокруглені кути */
+  }
+  .section-title h2 {
+    font-size: 24px; /* Зменшує розмір шрифту */
+    text-align: center; /* Центрує заголовок */
+    margin-bottom: 15px; /* Зменшує відстань до книг */
+  }
+
+  .cart-item img {
+    width: 120px; /* Зменшуємо розмір зображень в кошику */
+    height: 180px;
+  }
+
+  .books-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-left: 10px;
+  }
+
+  .book-card {
+    width: 150px; /* Задає однакову ширину */
+    padding: 10px;
+    font-size: 14px;
+    text-align: center; /* Вирівнює текст */
+  }
+
+  .book-image {
+    width: 140px;
+    height: 220px;
+    object-fit: cover;
+    margin: 0 auto; /* Центрує зображення */
+  }
+
+  .book-details {
+    flex-direction: column; /* Робимо вертикальне розташування */
+    padding: 10px;
+  }
+
+  .book-details .book-image {
+    width: 40%; /* Фото книги займає всю ширину */
+    height: auto;
+  }
+
+  .book-details .book-info {
+    padding: 10px; /* Менші відступи всередині */
+  }
+
+  .book-title {
+    font-size: 20px; /* Менший розмір шрифта для заголовка */
+  }
+
+  .book-author, .book-price {
+    font-size: 16px; /* Зменшуємо розмір шрифта для автора та ціни */
+  }
+
+  .book-description {
+    font-size: 14px; /* Менший розмір шрифта для опису книги */
+  }
+
+  /* Кнопки повернення і очищення */
+  .back-button, #clear-cart {
+    width: 100%; /* Розтягуємо кнопки на всю ширину */
+    font-size: 16px; /* Зменшуємо шрифт */
+  }
+  .faq {
+    margin-top: auto; /* Виштовхує FAQ вниз */
+    padding: 50px 20px; /* Менший padding */
+    background: #ffffff;
+    border-radius: 8px;
+    min-height: 300px; /* Мінімальна висота для FAQ */
+  }
+
+  .faq-item {
+    margin-bottom: 10px;
+  }
+
+  .faq-question {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background: #000000;
+    color: white;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+
+  .faq-answer {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  .faq-answer.show {
+    display: block; /* Покажемо відповідь, коли додано клас .show */
+  }
+  .faq h2 {
+    font-size: 18px; /* Розмір шрифту */
+    color: #000000; /* Колір тексту */
+    font-weight: bold; /* Жирний шрифт */
+    text-align: left; /* Вирівнювання тексту зліва */
+    margin-bottom: 30px; /* Відступ знизу */
+    margin-top: 50px;
+    padding-left: 90px; /* Відступ праворуч від краю */
+  }
+
+  @media (max-width: 450px) {
+    /* Стилі для контейнера акаунта */
+    .account-container {
+      padding: 15px;
+      right: 3%;
+      left: 1%;
+      width: 90%;
+      top: 10%;
+      border-radius: 8px;
+    }
+
+    /* Зменшення розміру зображення профілю */
+    .user-info img {
+      width: 80px;
+      height: 80px;
+    }
+
+    /* Зменшення шрифтів для заголовків */
+    .user-info h2 {
+      font-size: 20px;
+    }
+
+    .user-info p {
+      font-size: 14px;
+    }
+
+    /* Зменшення шрифтів для списків покупок */
+    .purchase-history h3, .settings h3 {
+      font-size: 18px;
+    }
+
+    .purchase-history li {
+      font-size: 16px;
+    }
+
+    /* Зменшення шрифтів для налаштувань */
+    .settings p {
+      font-size: 14px;
+    }
+
+    /* Кнопка назад */
+    .back-button {
+      height: 35px;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+  }
+  @media (max-width: 450px) {
+    /* Стилі для контейнера кошика */
+    .cart-container {
+      padding: 20px;
+      right: 50%;
+      width: 90%;
+      top: 10%;
+      border-radius: 8px;
+    }
+
+    /* Стилі для елементів кошика */
+    .cart-item {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .cart-item img {
+      width: 75%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .cart-item p {
+      font-size: 18px;
+      margin: 5px 0;
+      text-align: right;
+    }
+
+    input[type="number"] {
+      width: 50px;
+      margin-right: 5px;
+    }
+
+    /* Кнопка очистити кошик */
+    button#clear-cart {
+      width: 100%;
+      height: 50px;
+      font-size: 16px;
+      margin-top: 15px;
+      margin-left: 0;
+      border-radius: 8px;
+    }
+
+    button#clear-cart:hover {
+      background-color: #777777;
+    }
+
+    /* Стилі для видалення елементу */
+    .remove-icon {
+      margin-right: 0;
+      max-width: 20px;
+      max-height: 20px;
+      cursor: pointer;
+    }
+  }
+}
+@media (max-width: 600px) and (min-width: 451px) {
+  .time-container {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: nowrap;
+  }
+
+  .nav-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 13px;
+    align-items: center;
+  }
+
+  .top-nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .nav-button {
+    top: auto;
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+
+  .upper-button img {
+    max-width: 35px;
+    max-height: 35px;
+    object-fit: contain;
+  }
+  .section-title h2 {
+    font-size: 30px; /* Зменшує розмір шрифту */
+    text-align: center; /* Центрує заголовок */
+    margin-bottom: 15px; /* Зменшує відстань до книг */
+  }
+  .cart-container, .account-container {
+    width: 85%;
+    top: 7%;
+    right: 7%;
+    padding: 25px;
+    border-radius: 10px;
+  }
+
+  .cart-item img {
+    width: 140px;
+    height: 200px;
+  }
+
+  .book-card {
+    width: 150px;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .book-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .book-details {
+    flex-direction: column;
+    padding: 25px;
+  }
+
+  .book-details .book-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .book-details .book-info {
+    padding: 12px;
+  }
+
+  .book-title {
+    font-size: 20px;
+  }
+
+  .book-author, .book-price {
+    font-size: 18px;
+  }
+
+  .book-description {
+    font-size: 15px;
+  }
+
+  /* Кнопки повернення і очищення */
+  .back-button, #clear-cart {
+    width: 100%;
+    font-size: 18px;
+  }
+}
+@media (max-width: 600px) and (min-width: 451px) {
+  .account-container {
+    padding: 15px;
+    right: 3%;
+    left: 1%;
+    width: 90%;
+    top: 10%;
+    border-radius: 8px;
+  }
+
+  /* Зменшення розміру зображення профілю */
+  .user-info img {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Зменшення шрифтів для заголовків */
+  .user-info h2 {
+    font-size: 20px;
+  }
+
+  .user-info p {
+    font-size: 14px;
+  }
+
+  /* Зменшення шрифтів для списків покупок */
+  .purchase-history h3, .settings h3 {
+    font-size: 18px;
+  }
+
+  .purchase-history li {
+    font-size: 16px;
+  }
+
+  /* Зменшення шрифтів для налаштувань */
+  .settings p {
+    font-size: 14px;
+  }
+
+  /* Кнопка назад */
+  .back-button {
+    height: 35px;
+    font-size: 16px;
+    margin-top: 15px;
+  }
+}
+@media (max-width: 600px) and (min-width: 451px) {
+  .cart-container {
+    padding: 20px;
+    right: 50%;
+    width: 90%;
+    top: 10%;
+    border-radius: 8px;
+  }
+
+  /* Стилі для елементів кошика */
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+
+  .cart-item img {
+    width: 75%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .cart-item p {
+    font-size: 18px;
+    margin: 5px 0;
+    text-align: right;
+  }
+
+  input[type="number"] {
+    width: 50px;
+    margin-right: 5px;
+  }
+
+  /* Кнопка очистити кошик */
+  button#clear-cart {
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-left: 0;
+    border-radius: 8px;
+  }
+
+  button#clear-cart:hover {
+    background-color: #777777;
+  }
+
+  /* Стилі для видалення елементу */
+  .remove-icon {
+    margin-right: 0;
+    max-width: 20px;
+    max-height: 20px;
+    cursor: pointer;
+  }
+}
+@media (max-width: 760px) and (min-width: 601px) {
+  .time-container {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: nowrap;
+  }
+
+  .nav-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .top-nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .nav-button {
+    top: auto;
+    font-size: 15px;
+    padding: 7px 15px;
+  }
+
+  .upper-button img {
+    max-width: 35px;
+    max-height: 35px;
+    object-fit: contain;
+  }
+
+  .cart-container, .account-container {
+    width: 85%;
+    top: 7%;
+    right: 7%;
+    padding: 25px;
+    border-radius: 10px;
+  }
+
+  .cart-item img {
+    width: 140px;
+    height: 200px;
+  }
+
+  .book-card {
+    width: 150px;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .book-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .book-details {
+    flex-direction: column;
+    padding: 25px;
+  }
+
+  .book-details .book-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .book-details .book-info {
+    padding: 12px;
+  }
+
+  .book-title {
+    font-size: 20px;
+  }
+
+  .book-author, .book-price {
+    font-size: 18px;
+  }
+
+  .book-description {
+    font-size: 15px;
+  }
+  .faq-answer {
+    margin: 5px 40px; /* Зменшуємо бокові відступи, щоб відповідь була ширшою */
+  }
+  /* Кнопки повернення і очищення */
+  .back-button, #clear-cart {
+    width: 100%;
+    font-size: 18px;
+  }
+}

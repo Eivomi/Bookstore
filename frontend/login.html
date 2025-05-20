@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Вхід / Реєстрація</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script src="login.js"></script>
+</head>
+<body>
+
+<!-- Модальне вікно для форми авторизації -->
+<div id="auth-modal" class="auth-modal" style="display:none;">
+  <div id="react-auth-root"></div>
+</div>
+
+<!-- Кнопка для відкриття форми -->
+<button id="open-auth-modal">Увійти або зареєструватися</button>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // Користувач залогінений — перенаправляємо в акаунт
+        window.location.href = "account.html";
+      } else {
+        // Не залогінений — показуємо форму
+        openAccountForm();
+      }
+    });
+  });
+
+</script>
+
+</body>
+</html>

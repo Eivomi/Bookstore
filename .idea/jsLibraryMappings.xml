@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="PROJECT" libraries="{@babel/standalone, babel-standalone, firebase-app, firebase-app-compat, firebase-auth, firebase-auth-compat, firebase-compat, firebase-firestore, firebase-firestore-compat, preact, react, react-dom}" />
+    <includedPredefinedLibrary name="Node.js Core" />
+  </component>
+</project>

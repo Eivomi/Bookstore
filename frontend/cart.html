@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ваш кошик</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="time-container">
+  <div class="time-item">
+    <span class="time-letter">Ч</span>
+    <span class="time-description">читай</span>
+  </div>
+  <div class="time-item">
+    <span class="time-letter">А</span>
+    <span class="time-description">аналізуй</span>
+  </div>
+  <div class="time-item">
+    <span class="time-letter">С</span>
+    <span class="time-description">спілкуйся</span>
+  </div>
+</div>
+<header>
+  <h1>Ваш кошик</h1>
+</header>
+
+<main>
+  <div id="cart-items"></div>
+  <h3 id="total-price">Загальна вартість: 0 грн</h3>
+  <button id="clear-cart">Очистити кошик</button>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+</main>
+  <!-- Firebase Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+
+  <!-- Firebase compat (для старого синтаксису 8.x, який ти використовуєш) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-compat.js"></script>
+
+  <script src="cart.js"></script>
+</body>
+</html>
