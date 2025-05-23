@@ -5,3 +5,4 @@ node_modules
 dist
 .cacheconfig/serviceAccountKey.json
 config/serviceAccountKey.json
+config/serviceAccountKey.json
